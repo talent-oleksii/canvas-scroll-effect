@@ -1,5 +1,5 @@
 import CanvasScrollClip from 'canvas-scroll-clip';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 interface CanvasScrollClipSectionProps {
 	framePath: string;
