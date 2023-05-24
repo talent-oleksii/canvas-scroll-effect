@@ -1,5 +1,5 @@
 import CanvasScrollClip from 'canvas-scroll-clip';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface CanvasScrollClipSectionProps {
 	framePath: string;
@@ -26,7 +26,16 @@ function App() {
 	const [framePath, setFramePath] = React.useState('assets/images/0001.jpg');
 	const [frameCount, setFrameCount] = React.useState(10);
 	const [scrollArea, setScrollArea] = React.useState(2000);
+	const [updateFramePath, setUpdateFramePath] = React.useState('assets/images/0001.jpg');
+	const [updateFrameCount, setUpdateFrameCount] = React.useState(10);
+	const [updateScrollArea, setUpdateScrollArea] = React.useState(2000);
 
+	const handleClickCheck = () => {
+		setUpdateFramePath(framePath);
+		setUpdateFrameCount(frameCount);
+		setUpdateScrollArea(scrollArea);
+	}
+	
 	const handleFramePathChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setFramePath(event.target.value);
 	};
@@ -60,8 +69,13 @@ function App() {
 						<input value={scrollArea} onChange={handleScrollArea}></input>
 					</div>
 				</div>
+				<div style={{ display: 'flex', justifyContent: 'center' }}>
+					<div>
+						<button onClick={() => handleClickCheck()}>Check</button>
+					</div>
+				</div>
 			</div>
-			<CanvasScrollClipSection framePath={framePath} frameCount={frameCount} scrollArea={scrollArea} />
+			<CanvasScrollClipSection framePath={updateFramePath} frameCount={updateFrameCount} scrollArea={updateScrollArea} />
 		</div>
 	);
 }
