@@ -1,6 +1,5 @@
-import React from 'react';
 import CanvasScrollClip from 'canvas-scroll-clip';
-import { parse } from 'path';
+import React from 'react';
 
 interface CanvasScrollClipSectionProps {
 	framePath: string;
